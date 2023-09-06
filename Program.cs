@@ -22,12 +22,13 @@ internal class Program
             for (int i = 0; i < can; i++)
             {
                 Fruta ph = new Fruta();
-                Console.Write("Ingresar precio de la fruta:");
-                double precio = double.Parse(Console.ReadLine() ?? "0");
-                ph.setp(precio);
+
                 Console.Write("Ingresar nombre de la fruta:");
                 string nom = (Console.ReadLine() ?? "0");
                 ph.setn(nom);
+                Console.Write("Ingresar precio de la fruta:");
+                double precio = double.Parse(Console.ReadLine() ?? "0");
+                ph.setp(precio);
                 Console.Write("Ingresar descripcion de la fruta:");
                 string des = (Console.ReadLine() ?? "0");
                 ph.setd(des);
@@ -115,6 +116,7 @@ internal class Program
 
         while (true)
         {
+
             Console.WriteLine("MENU FRUTERIA LA MANZANA PODRIDA.");
             Console.WriteLine("1. Para generar canasta.");
             Console.WriteLine("2. Ver canastas.");
@@ -127,8 +129,7 @@ internal class Program
             {
                 Canasta miCanasta = new Canasta(); // Crear una nueva instancia de Canasta
 
-                while (true)
-                {
+        
                     Console.WriteLine("MENU DE CANASTA - FRUTERIA LA MANZANA PODRIDA");
                     Console.WriteLine("1. Para ingresar fruta");
                     Console.WriteLine("0. Salir");
@@ -145,7 +146,6 @@ internal class Program
                         break; // Salir del bucle de la canasta
                     }
                 }
-            }
             else if (op == 2)
             {
                 if (canastas.Count > 0)
@@ -153,14 +153,20 @@ internal class Program
                     Console.WriteLine("CANASTAS DISPONIBLES:");
                     for (int i = 0; i < canastas.Count; i++)
                     {
+
                         Console.WriteLine($"Canasta {i + 1}:");
                         canastas[i].MostrarCanasta();
                         Console.WriteLine("********************");
+                        Thread.Sleep(TimeSpan.FromMinutes(0.1));
+                        Console.Clear();
                     }
+                    Console.Clear();
                 }
                 else
                 {
                     Console.WriteLine("No se han ingresado canastas.");
+                    Thread.Sleep(TimeSpan.FromMinutes(0.1));
+                    Console.Clear();
                 }
             }
             else if (op == 0)

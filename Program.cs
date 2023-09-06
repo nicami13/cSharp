@@ -129,22 +129,31 @@ internal class Program
             {
                 Canasta miCanasta = new Canasta(); // Crear una nueva instancia de Canasta
 
-        
+                while(true){
+
                     Console.WriteLine("MENU DE CANASTA - FRUTERIA LA MANZANA PODRIDA");
                     Console.WriteLine("1. Para ingresar fruta");
-                    Console.WriteLine("0. Salir");
+                    Console.WriteLine("2.Eliminar fruta");
+                    Console.WriteLine("0.Salir");
                     op = int.Parse(Console.ReadLine() ?? "0");
                     Console.Clear();
 
                     if (op == 1)
                     {
-                        miCanasta.IngresarFrutas();
-                        canastas.Add(miCanasta);
+                        miCanasta.IngresarFrutas();   
+                    }
+                    if(op==2){
+                        Console.Write("Ingresa el nombre de la fruta que deseas eliminar:");
+                        string fe=Console.ReadLine() ?? "0";
+                        miCanasta.EliminarFruta(fe);
+                        Console.Clear();
                     }
                     else if (op == 0)
                     {
-                        break; // Salir del bucle de la canasta
+                        canastas.Add(miCanasta);
+                        break;
                     }
+                }
                 }
             else if (op == 2)
             {
@@ -169,10 +178,10 @@ internal class Program
                     Console.Clear();
                 }
             }
-            else if (op == 0)
-            {
-                break; // Salir del bucle principal
+            else if(op==0){
+                break;
             }
+
         }
     }
 }
